@@ -19,25 +19,41 @@ public class CourseService{
     }// CourseService
 
     public void enrollStudent(String studentId, String courseId){
-    	
-    	students.get(studentId);
-    	students.get(courseId);
+    	Course course = courses.get(courseId);
+    	Student student = students.get(studentId);
+    	if((student!=null && course != null)) {
+    	student.enroll(course);
+    	}//if !=null
     	
     }//enrollStudent
 
     public void unEnrollStudent(String studentId, String courseId){
-    	students.get(studentId);
-    	students.get(courseId);
+    	Course course = courses.get(courseId);
+    	Student student = students.get(studentId);
+    	if((student!=null && course != null)) {
+    		student.unEnroll(course);
+        	}//if !=null
+    	
     	
     }//unEnrollStudent
 
     public void displayCourseInformation(String courseId){
-    	System.out.println(courses.get(courseId));
+    	Course course = courses.get(courseId);
+    if (course !=null) {
+    	System.out.println(course);
+	}else {
+		System.out.println("CourseId Not Found" + courseId);
+	}//else
     }//displayCourseInformation
 
     public void displayStudentInformation(String studentId){
+    	Student student = students.get(studentId);
+    if (student !=null) {
+    	   System.out.println(student);
+    }else {
+    	System.out.println("student Not Found" + student);
+    }//else
     	
-    	System.out.println(students.get(studentId));
     }//displayStudentInformation
 
 
